@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>CityTourism</groupId>
 	<artifactId>restaurant-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>restaurant-service</name>
 	<description>Service for restaurants</description>
 	<url/>

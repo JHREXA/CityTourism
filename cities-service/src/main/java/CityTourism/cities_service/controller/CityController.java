@@ -19,8 +19,8 @@ public class CityController {
     private ICityService service;
 
     @GetMapping("/hotels")
-    public CityDTO getCityAndHotels(@RequestParam String name,
-                                    @RequestParam String country){
+    public CityDTO getCityAndHotels(@RequestParam(required = true) String name,
+                                    @RequestParam(required = true) String country){
         return service.getCityHotels(name, country);
     }
 

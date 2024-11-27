@@ -31,6 +31,10 @@ public class CityService implements ICityService{
 
         City city = this.repository.findCity(name,country);
 
+        if (city == null) {
+            throw new CityNotFoundException("City not found with name: " + name + " and country: " + country);
+        }
+
         CityDTO cityDTO = new CityDTO();
         cityDTO.setCityId(city.getCity_id());
         cityDTO.setName(city.getName());
@@ -48,6 +52,10 @@ public class CityService implements ICityService{
     public CityRestaurantDTO getCityRestaurants(String name, String country) {
         City city = this.repository.findCity(name,country);
 
+        if (city == null) {
+            throw new CityNotFoundException("City not found with name: " + name + " and country: " + country);
+        }
+
         CityRestaurantDTO cityDTO = new CityRestaurantDTO();
         cityDTO.setCityId(city.getCity_id());
         cityDTO.setName(city.getName());
@@ -64,6 +72,10 @@ public class CityService implements ICityService{
     public CityMuseumDTO getCityMuseums(String name, String country) {
         City city = this.repository.findCity(name,country);
 
+        if (city == null) {
+            throw new CityNotFoundException("City not found with name: " + name + " and country: " + country);
+        }
+
         CityMuseumDTO cityDTO = new CityMuseumDTO();
         cityDTO.setCityId(city.getCity_id());
         cityDTO.setName(city.getName());
@@ -75,4 +87,11 @@ public class CityService implements ICityService{
 
         return cityDTO;
     }
+
+    public class CityNotFoundException extends RuntimeException {
+        public CityNotFoundException(String message) {
+            super(message);
+        }
+    }
+
 }
